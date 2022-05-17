@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import Onboarding from '../Screens/Onboarding';
+import Intro from '../Screens/Intro';
 
 const Stack = createNativeStackNavigator();
 
@@ -30,6 +31,7 @@ export default function AuthStack() {
         <NavigationContainer>
             <Stack.Navigator>
               <Stack.Screen name="Onboarding" component={Onboarding}  options = {{headerShown : false}}/>
+              <Stack.Screen name='Intro' component={Intro} options = {{headerShown : false}}/>
             </Stack.Navigator>
           </NavigationContainer>
       );
@@ -37,7 +39,7 @@ export default function AuthStack() {
       return(
         <NavigationContainer>
         <Stack.Navigator>
-          {/* <Stack.Screen name='Intro' component={Intro} options = {{headerShown : false}}/> */}
+          <Stack.Screen name='Intro' component={Intro} options = {{headerShown : false}}/>
           
         </Stack.Navigator>
       </NavigationContainer>
