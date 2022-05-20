@@ -1,4 +1,5 @@
 import {useState} from 'react';
+
 import * as React from "react";
 import { View, Image, StyleSheet, TouchableOpacity, Text, ActivityIndicator} from 'react-native';
 import {Headline, Subheading, Paragraph} from 'react-native-paper';
@@ -6,17 +7,19 @@ import {Headline, Subheading, Paragraph} from 'react-native-paper';
 import FormButton from '../Components/FormButton';
 import COLORS from '../assets/COLORS';
 
+
 import { singinWithSocial } from "../Firebase/auth";
-import { GoogleAuthProvider} from 'firebase/auth';
+import { GoogleAuthProvider, FacebookAuthProvider} from 'firebase/auth';
 
 export default function Intro({navigation})  {
   
   const [loading, setLoading] = useState(false);
-  const provider = new GoogleAuthProvider();
+  const googelProvider = new GoogleAuthProvider();
+  const facebookProvider = new FacebookAuthProvider();
 
   function continuesWithGoogle (){
     setLoading(true);
-    singinWithSocial(provider).then((result) => {
+    singinWithSocial(googelProvider).then((result) => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
       const user = result.user;
@@ -30,6 +33,7 @@ export default function Intro({navigation})  {
       const credential = GoogleAuthProvider.credentialFromError(error);
   });
   }
+
 
   function continuesWithFacebook (){
     singinWithSocial(facebookProvider).then((result) => {
@@ -48,6 +52,7 @@ export default function Intro({navigation})  {
 
     });
   }
+
 
   function goToHome() {
     navigation.navigate('Home');

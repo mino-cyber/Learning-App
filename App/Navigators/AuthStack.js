@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import Onboarding from '../Screens/Onboarding';
+import Intro from '../Screens/Intro';
 
 const Stack = createNativeStackNavigator();
 

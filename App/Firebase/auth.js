@@ -44,9 +44,10 @@ async function singinWithSocial (provider){
 }
 
 
-
 async function logout() {
     authentication.signOut().then().catch((e) => console.log(e.message));
 }
 
+
 export {register, login, isSignedIn,restPassword, getUserUId, logout, getUserToken, singinWithSocial};
+
