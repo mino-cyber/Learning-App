@@ -7,6 +7,8 @@ import Onboarding from '../Screens/Onboarding';
 import Intro from '../Screens/Intro';
 import CreateAccount from '../Screens/CreateAccount';
 import Login from '../Screens/login';
+import ForgotPassword from '../Screens/ForgotPassword';
+
 
 const Stack = createNativeStackNavigator();
 
@@ -36,16 +38,18 @@ export default function AuthStack() {
               <Stack.Screen name='Intro' component={Intro} options = {{headerShown : false}}/>
               <Stack.Screen name='CreateAccount' component={CreateAccount}/>
               <Stack.Screen name='Login' component={Login}/>
+              <Stack.Screen name='ForgotPassword' component={ForgotPassword}/>
             </Stack.Navigator>
           </NavigationContainer>
       );
     }else{
       return(
         <NavigationContainer>
-        <Stack.Navigator>
+        <Stack.Navigator initialRouteName='Intro'>
           <Stack.Screen name='Intro' component={Intro} options = {{headerShown : false}}/>
           <Stack.Screen name='CreateAccount' component={CreateAccount}/>
           <Stack.Screen name='Login' component={Login}/>
+          <Stack.Screen name='ForgotPassword' component={ForgotPassword}/>
         </Stack.Navigator>
       </NavigationContainer>
       ) 
