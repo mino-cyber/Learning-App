@@ -1,9 +1,9 @@
 import {app} from "./config";
 import {signInWithEmailAndPassword, createUserWithEmailAndPassword, getAuth, sendPasswordResetEmail,
-     sendSignInLinkToEmail,  GoogleAuthProvider,signInWithPopup} from "firebase/auth";
+     sendSignInLinkToEmail, signInWithPopup} from "firebase/auth";
 
 const authentication = getAuth(app);
-// const provider = new GoogleAuthProvider();
+
 
 async function isSignedIn() {
     console.log('from isSignedIn method: ', authentication.currentUser);
@@ -39,14 +39,14 @@ async function restPassword (email){
    await sendPasswordResetEmail(authentication, email);
 }
 
-// async function singinWithGoogele (authentication,provider){
-//     auth.languageCode = 'it';
-//     firebase.auth().useDeviceLanguage();
-//     await signInWithPopup(authentication, provider);
-// }
+async function singinWithSocial (provider){
+    await signInWithPopup(authentication, provider);
+}
+
+
 
 async function logout() {
     authentication.signOut().then().catch((e) => console.log(e.message));
 }
 
-export {register, login, isSignedIn,restPassword, getUserUId, logout, getUserToken};
+export {register, login, isSignedIn,restPassword, getUserUId, logout, getUserToken, singinWithSocial};

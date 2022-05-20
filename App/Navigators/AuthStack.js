@@ -30,6 +30,7 @@ export default function AuthStack() {
         <NavigationContainer>
             <Stack.Navigator>
               <Stack.Screen name="Onboarding" component={Onboarding}  options = {{headerShown : false}}/>
+              <Stack.Screen name='Intro' component={Intro} options = {{headerShown : false}}/>
             </Stack.Navigator>
           </NavigationContainer>
       );
@@ -37,7 +38,7 @@ export default function AuthStack() {
       return(
         <NavigationContainer>
         <Stack.Navigator>
-          {/* <Stack.Screen name='Intro' component={Intro} options = {{headerShown : false}}/> */}
+          <Stack.Screen name='Intro' component={Intro} options = {{headerShown : false}}/>
           
         </Stack.Navigator>
       </NavigationContainer>
