@@ -6,6 +6,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import Onboarding from '../Screens/Onboarding';
 import Intro from '../Screens/Intro';
 import CreateAccount from '../Screens/CreateAccount';
+import Login from '../Screens/login';
 
 const Stack = createNativeStackNavigator();
 
@@ -34,6 +35,7 @@ export default function AuthStack() {
               <Stack.Screen name="Onboarding" component={Onboarding}  options = {{headerShown : false}}/>
               <Stack.Screen name='Intro' component={Intro} options = {{headerShown : false}}/>
               <Stack.Screen name='CreateAccount' component={CreateAccount}/>
+              <Stack.Screen name='Login' component={Login}/>
             </Stack.Navigator>
           </NavigationContainer>
       );
@@ -43,6 +45,7 @@ export default function AuthStack() {
         <Stack.Navigator>
           <Stack.Screen name='Intro' component={Intro} options = {{headerShown : false}}/>
           <Stack.Screen name='CreateAccount' component={CreateAccount}/>
+          <Stack.Screen name='Login' component={Login}/>
         </Stack.Navigator>
       </NavigationContainer>
       ) 
