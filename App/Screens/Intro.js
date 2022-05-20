@@ -1,7 +1,7 @@
 import {useState} from 'react';
 
 import * as React from "react";
-import { View, Image, StyleSheet, TouchableOpacity, Text, ActivityIndicator} from 'react-native';
+import { View, Image, StyleSheet, TouchableOpacity, Text, ActivityIndicator, KeyboardAvoidingView} from 'react-native';
 import {Headline, Subheading, Paragraph} from 'react-native-paper';
 
 import FormButton from '../Components/FormButton';
@@ -58,9 +58,8 @@ export default function Intro({navigation})  {
     navigation.navigate('Home');
   }
 
-  return(
+  return(    
     <View style={styles.container}>
-
       {loading ? <ActivityIndicator size="large" color= {COLORS.primary} /> : null}
         
         <Image source={require('../assets/Intro.png')} 

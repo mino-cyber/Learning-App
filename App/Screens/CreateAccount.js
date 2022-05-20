@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { View,ScrollView,StyleSheet,TouchableOpacity,ActivityIndicator} from 'react-native';
+import { View,ScrollView,StyleSheet,TouchableOpacity,ActivityIndicator,KeyboardAvoidingView,Keyboard} from 'react-native';
 import {Title, Subheading,TextInput,Text} from 'react-native-paper';
 import {register, getUserUId} from "../Firebase/auth";
 import {addUser} from "../Firebase/user";
@@ -68,7 +68,9 @@ export default function CreateAccount({navigation})  {
     }
 
     return(
-        <ScrollView style = {styles.container}>
+        <KeyboardAvoidingView style ={{flex:1}}>
+        
+        <ScrollView style = {styles.container} onPress ={Keyboard.dismiss}>
             {loading ? <ActivityIndicator size="large" color= {COLORS.primary} /> : null}
             
             <View style = {styles.Viewstyle}>
@@ -166,6 +168,7 @@ export default function CreateAccount({navigation})  {
 
             
         </ScrollView>
+        </KeyboardAvoidingView>
     );
 }
 
