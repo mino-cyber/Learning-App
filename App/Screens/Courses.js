@@ -1,5 +1,5 @@
 import React, {useState,useEffect} from 'react';
-import { View , StyleSheet, ScrollView,StatusBar,TouchableOpacity,Text} from 'react-native';
+import { View , StyleSheet, ScrollView,StatusBar,TouchableOpacity,Text, SliderComponent} from 'react-native';
 
 
 import COLORS from '../assets/COLORS';
@@ -9,53 +9,54 @@ import {getItem} from '../Firebase/collection';
 
 export default function Courses(){
 
-    const [Course, setCourse] = useState('CS');
     const [color1, setColor1] = useState (COLORS.primary);
     const [color2, setColor2] = useState (COLORS.black);
     const [color3, setColor3] = useState (COLORS.black);
     const [color4, setColor4] = useState (COLORS.black);
 
-    async function getCourse(){
-        const CourseItem = await getItem(Course);
+
+    async function getCourse(courseName){
+        const CourseItem = await getItem(courseName);
+        CourseItem.map((a, index) => 
+            console.log(index)
+        )
         setItem(CourseItem);
     }
           
     useEffect(() => {
-        getCourse();
+        getCourse('CS');
     }, []);
  
     const [Items, setItem] = useState([]);
 
-    function csOnPress (){
-        setCourse('CS');
-        getCourse();
+    async function csOnPress (){
+        await getCourse('CS');
         setColor1(COLORS.primary);
         setColor2(COLORS.black);
         setColor3(COLORS.black);
         setColor4(COLORS.black);
     }
 
-    function designonPress (){
-        setCourse('Design');
-        getCourse();
+    async function designonPress (){
+        console.log("before");
+        await getCourse('Design');
+        console.log("after");
         setColor1(COLORS.black);
         setColor2(COLORS.primary);
         setColor3(COLORS.black);
         setColor4(COLORS.black);
     }
 
-    function marketingonPress (){
-        setCourse('Marketing');
-        getCourse();
+    async function marketingonPress (){
+        await getCourse('Marketing');
         setColor1(COLORS.black);
         setColor2(COLORS.black);
         setColor3(COLORS.primary);
         setColor4(COLORS.black);
     }
 
-    function businessonPress (){
-        setCourse('Business');
-        getCourse();
+    async function businessonPress (){
+        await getCourse('Business');
         setColor1(COLORS.black);
         setColor2(COLORS.black);
         setColor3(COLORS.black);
@@ -104,10 +105,7 @@ export default function Courses(){
           ))}
 
             <StatusBar style="auto"/>
-          </View>
-
-
-        
+          </View>        
     );
 }
 
