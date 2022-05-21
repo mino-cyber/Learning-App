@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { View,ScrollView,StyleSheet,TouchableOpacity,ActivityIndicator,KeyboardAvoidingView,Keyboard} from 'react-native';
+import { View,ScrollView,StyleSheet,TouchableOpacity,ActivityIndicator} from 'react-native';
 import {Title, Subheading,TextInput,Text} from 'react-native-paper';
 import {register, getUserUId} from "../Firebase/auth";
 import {addUser} from "../Firebase/user";
@@ -15,6 +15,7 @@ export default function CreateAccount({navigation})  {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    
     const [loading, setLoading] = useState(false);
     const [color1, setColor1] = useState(COLORS.secondary);
     const [color2, setColor2] = useState(COLORS.secondary);
@@ -47,7 +48,7 @@ export default function CreateAccount({navigation})  {
                 console.log(getUserUId());
 
                 getUserUId().then((id) => {
-                    addUser({id: id, email, firstName,lastName, Balance : 100});
+                    addUser({id: id, email, firstName,lastName, userImage :'https://i.ibb.co/sQzK2YR/Avatar-03.png'});
                 });
                 navigation.navigate('Home');
             }).catch((e) => {
@@ -68,10 +69,9 @@ export default function CreateAccount({navigation})  {
     }
 
     return(
-        <KeyboardAvoidingView style ={{flex:1}}>
-        
-        <ScrollView style = {styles.container} onPress ={Keyboard.dismiss}>
-            {loading ? <ActivityIndicator size="large" color= {COLORS.primary} /> : null}
+        <ScrollView style = {styles.container} >
+             {loading ? <ActivityIndicator size="large" color= {COLORS.primary} /> : null}
+            
             
             <View style = {styles.Viewstyle}>
                 <Title style = {styles.Title}>Welcome!</Title>
@@ -79,7 +79,7 @@ export default function CreateAccount({navigation})  {
             </View>
 
 
-            <Title style = {styles.font}>Personal information</Title>
+             <Title style = {styles.font}>Personal information</Title>
             
             <View style = {{alignItems: 'center'}}>
 
@@ -110,7 +110,7 @@ export default function CreateAccount({navigation})  {
 
             
 
-            <Title style = {styles.font}>Your Password</Title>
+             <Title style = {styles.font}>Your Password</Title>
 
             <View style = {{alignItems: 'center'}}>
                 
@@ -138,7 +138,7 @@ export default function CreateAccount({navigation})  {
 
             </View>
 
-            <View
+             <View
                 style={{
                     flexDirection: 'row',
                     alignItems: 'flex-end',
@@ -162,13 +162,13 @@ export default function CreateAccount({navigation})  {
                     labelStyle={styles.ContinuesButtonLabel}
                     title={"Create Account"}
                     color = {COLORS.primary}
-                    onPress = {registerUser}
+                    onPress = {() => {registerUser()}}
                 />
-            </View>
+            </View>  
 
             
         </ScrollView>
-        </KeyboardAvoidingView>
+        
     );
 }
 
@@ -179,7 +179,6 @@ const styles = StyleSheet.create({
       },
 
       Viewstyle:{
-        alignItems: 'left',
         paddingTop : 50,
         paddingLeft : 20,
       },
