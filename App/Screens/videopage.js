@@ -1,67 +1,65 @@
-import react from "react";
-import { StyleSheet,View,Text,FlatList,ScrollView,SafeAreaView } from "react-native";
-import { Card } from "react-native-paper";
-import VideoPlayer from "react-native-videoplayer";
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Button, View , ScrollView} from 'react-native';
+import { Video } from 'expo-av';
+import React from 'react';
+import { FlatList } from 'react-native-web';
+import { color } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
 
-const videopage =() => {
-    data=[
-        {
-            id:1,
-            name:'https://www.youtube.com/watch?v=WSJHAsnot54&t=3s',
-            name_1:'video 1',
-            time:'5',
-        },
-        {
-            id:4,
-            name:'https://www.youtube.com/watch?v=WSJHAsnot54&t=3s',
-            name_1:'video 2',
-            time:'5',
-        },
-        {
-            id:3,
-            name:'https://www.youtube.com/watch?v=WSJHAsnot54&t=3s',
-            name_1:'video 3',
-            time:'5',
-        },
-        {
-            id:5,
-            name:'https://www.youtube.com/watch?v=WSJHAsnot54&t=3s',
-            name_1:'video 4',
-            time:'5',
-        },
-        {
-            id:8,
-            name:'https://www.youtube.com/watch?v=WSJHAsnot54&t=3s',
-            name_1:'video 5',
-            time:'5',
-        },
-    ]
-    return(
-        <SafeAreaView>
-<FlatList data={data} 
-keyExtractor={(item,index)=> '${index}'}
-renderItem={({item,index})=>{
-    return <ScrollView style={{marginTop:10 }}>
-        <View>
-            <Text>{item.name_1}</Text>
-        </View>
-        <VideoPlayer video={{uri:item.name}} 
-        autoplay={false}
-        defaultMuted={true}
-        videoWidth={1500}
-        videoHeight={1000}
-        thumbnail={require('../../assets/images/Group.png')}
-        />
-    </ScrollView>
-}}
-/>    
-      </SafeAreaView>
-    );
+export default function App() {
+  const video = React.useRef(null);
+  const secondVideo = React.useRef(null);
+  const [status, setStatus] = React.useState({});
+  const [statusSecondVideo, setStatusSecondVideo] = React.useState({});
 
-};
+  return (
+    <View style={styles.container}>
+      <Video
+        ref={secondVideo}
+        style={styles.video}
+        source={require("./aa.mp4")}
+        useNativeControls
+        resizeMode="contain"
+        isLooping
+        onPlaybackStatusUpdate={setStatusSecondVideo}
+      />
+      <View style={styles.buttons}>
+        <Button title="Play from 50s" onPress={() => secondVideo.current.playFromPositionAsync(50000)} />
+        <Button title={statusSecondVideo.isLooping ? "Set to not loop" : "Set to loop"} onPress={() => secondVideo.current.setIsLoopingAsync(!statusSecondVideo.isLooping)} />
+      </View>
 
-export default videopage ;
+      <Video
+        ref={secondVideo}
+        style={styles.video}
+        source={require("./bb.mp4")}
+        useNativeControls
+        resizeMode="contain"
+        isLooping
+        onPlaybackStatusUpdate={setStatusSecondVideo}
+      />
+      <View style={styles.buttons}>
+        <Button title="Play from 50s" onPress={() => secondVideo.current.playFromPositionAsync(50000)} />
+        <Button title={statusSecondVideo.isLooping ? "Set to not loop" : "Set to loop"} onPress={() => secondVideo.current.setIsLoopingAsync(!statusSecondVideo.isLooping)} />
+      </View>
+      <StatusBar style="auto" />
+    </View>
+    
+    
+  );
+}
 
-const styles = StyleSheet.create
-
-
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  video: {
+    flex: 1,
+    alignSelf: 'stretch'
+  },
+  buttons: {
+    margin: 16 ,
+    borderRadius: 20, 
+   },
+});
