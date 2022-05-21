@@ -7,7 +7,7 @@ import {
   TouchableOpacity
 } from 'react-native';
 
-export default class Profile extends Component {
+export default class instuctor extends Component {
 
   render() {
     return (
