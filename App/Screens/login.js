@@ -1,7 +1,7 @@
 import {useState,useContext} from 'react';
 import * as React from "react";
-import { View,StyleSheet,Text, TouchableOpacity, ActivityIndicator} from 'react-native';
-import {Title, Subheading} from 'react-native-paper';
+import { View,StyleSheet,Text, TouchableOpacity, ActivityIndicator,KeyboardAvoidingView, Keyboard} from 'react-native';
+import {Title, Subheading,TextInput} from 'react-native-paper';
 import {login} from "../Firebase/auth";
 
 import FormButton from '../Components/FormButton';
@@ -98,7 +98,7 @@ export default function Login({navigation})  {
         </View>
 
             <Text style = {styles.Text}>OR</Text>
-
+{/* 
             <FormButton
                 mode = "outlined"
                 icon={"facebook"}
@@ -113,7 +113,7 @@ export default function Login({navigation})  {
                 labelStyle={styles.ContinuesButtonLabel}
                 title={"Login With Google"}
                 color = {COLORS.primary}
-            />
+            /> */}
 
             <View
                 style={{
