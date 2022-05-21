@@ -16,13 +16,8 @@ export default class Profile extends Component {
           <Image style={styles.avatar} source={{uri: 'https://bootdey.com/img/Content/avatar/avatar6.png'}}/>
           <View style={styles.body}>
             <View style={styles.bodyContent}>
-              <Text style={styles.name}>Instructor</Text>
-              <Text style={styles.info}>Director of Public Services, Library of the American University in Cairo
-
-</Text>
-              <Text style={styles.description}>Biography:
-
-Jayme Spencer is the Director of Public Services at The American University in Cairo. In 1993, she coordinated the first office of information literacy in the AUC Library.  Jayme is currently a member of the Academic Integrity Council and active in other university committees. She also serves as the Chair of the Working Group on Instruction and Information Literacy of AMICAL (a consortium of 20 American-style libraries in Europe, North Africa, Asia and the Middle East).    ,</Text>
+              <Text style={styles.name}>Amin Sayed </Text>
+              <Text style={styles.info}> Mobile developer</Text>
               
               <TouchableOpacity style={styles.buttonContainer}>
                 <Text>Home Page</Text>  
