@@ -50,7 +50,7 @@ export default function CreateAccount({navigation})  {
                 getUserUId().then((id) => {
                     addUser({id: id, email, firstName,lastName, userImage :'https://i.ibb.co/sQzK2YR/Avatar-03.png'});
                 });
-                navigation.navigate('Home');
+                navigation.navigate('Courses');
             }).catch((e) => {
                 setLoading(false);
                 console.log(e.message)

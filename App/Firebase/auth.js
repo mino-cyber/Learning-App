@@ -1,8 +1,16 @@
 import {app} from "./config";
 import {signInWithEmailAndPassword, createUserWithEmailAndPassword, getAuth, sendPasswordResetEmail,
-     sendSignInLinkToEmail, signInWithPopup} from "firebase/auth";
+    onAuthStateChanged, signInWithPopup} from "firebase/auth";
 
-const authentication = getAuth(app);
+export const authentication = getAuth(app);
+
+// onAuthStateChanged(authentication, (user) => {
+//     if (user != null) {
+//         console.log("authorized user: ", user);
+//         console.log(authentication.currentUser)
+//     }
+//     console.log('isSignedIn=', isSignedIn())
+// });
 
 
 async function isSignedIn() {
@@ -49,5 +57,5 @@ async function logout() {
 }
 
 
-export {register, login, isSignedIn,restPassword, getUserUId, logout, getUserToken, singinWithSocial};
+export {register, login, isSignedIn,restPassword, getUserUId, logout, getUserToken, singinWithSocial,onAuthStateChanged};
 
