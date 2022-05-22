@@ -6,7 +6,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import Onboarding from '../Screens/Onboarding';
 import Intro from '../Screens/Intro';
 import CreateAccount from '../Screens/CreateAccount';
-import Login from '../Screens/login';
+import Login from '../Screens/Login';
 import ForgotPassword from '../Screens/ForgotPassword';
 
 
