@@ -7,9 +7,11 @@ import {
   TouchableOpacity
 } from 'react-native';
 
-export default class Profile extends Component {
+import { logout } from '../Firebase/auth';
+import COLORS from '../assets/COLORS';
 
-  render() {
+export default function Account ({navigation}) {
+
     return (
       <View style={styles.container}>
           <View style={styles.header}></View>
@@ -19,24 +21,28 @@ export default class Profile extends Component {
               <Text style={styles.name}>Instructor</Text>
               <Text style={styles.info}>Director of Public Services, Library of the American University in Cairo
 
-</Text>
+            </Text>
               <Text style={styles.description}>Biography:
 
 Jayme Spencer is the Director of Public Services at The American University in Cairo. In 1993, she coordinated the first office of information literacy in the AUC Library.  Jayme is currently a member of the Academic Integrity Council and active in other university committees. She also serves as the Chair of the Working Group on Instruction and Information Literacy of AMICAL (a consortium of 20 American-style libraries in Europe, North Africa, Asia and the Middle East).    ,</Text>
               
-              <TouchableOpacity style={styles.buttonContainer}>
-                <Text>Home Page</Text>  
-              </TouchableOpacity>              
+              <TouchableOpacity style={styles.buttonContainer} onPress = {() => navigation.navigate('Courses')}>
+                <Text style = {{color:COLORS.white}}>Home Page</Text>  
+              </TouchableOpacity> 
+
+              <TouchableOpacity style={styles.buttonContainer} onPress = {() => logout()}>
+                <Text style = {{color:COLORS.white}}>Logout</Text>  
+              </TouchableOpacity>
+
             </View>
         </View>
       </View>
     );
   }
-}
 
 const styles = StyleSheet.create({
   header:{
-    backgroundColor: "#00BFFF",
+    backgroundColor: COLORS.primary,
     height:200,
   },
   avatar: {
@@ -88,6 +94,6 @@ const styles = StyleSheet.create({
     marginBottom:20,
     width:250,
     borderRadius:30,
-    backgroundColor: "#00BFFF",
+    backgroundColor: COLORS.primary,
   },
 });
