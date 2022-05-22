@@ -5,7 +5,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import Courses from '../Screens/Courses';
-import VideosList from '../Screens/Videoslist';
+// import VideosList from '../Screens/Videoslist';
 import VideoPage from '../Screens/Videopage';
 import Search from '../Screens/Search';
 import Account from '../Screens/Account';
@@ -45,7 +45,7 @@ export default function AppStack(){
       <Stack.Navigator initialRouteName='Menu'>
         <Stack.Screen name='Menu' component={Menu}  options = {{headerShown : false}}/>
         <Stack.Screen name='Search' component={Search} options = {{headerShown : false}}/>
-        <Stack.Screen name='VideosList' component={VideosList} options ={{headerShown : false}}/>
+        {/* <Stack.Screen name='VideosList' component={VideosList} options ={{headerShown : false}}/> */}
         <Stack.Screen name='VideoPage' component={VideoPage} options ={{headerShown : false}}/>
         <Stack.Screen name='InstuctorHome' component={InstuctorHome} options ={{headerShown : false}}/>
         <Stack.Screen name='Admin' component={Admin} options ={{headerShown : false}}/> 

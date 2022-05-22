@@ -6,8 +6,8 @@ import COLORS from '../assets/COLORS';
 import CourseCard from "../Components/CourseCard";
 
 import {getItem} from '../Firebase/collection';
-
-export default function Courses(){
+import FormButton from '../Components/FormButton';
+export default function Courses({route, navigation}){
 
     const [color1, setColor1] = useState (COLORS.primary);
     const [color2, setColor2] = useState (COLORS.black);
@@ -68,7 +68,13 @@ export default function Courses(){
 
         <View>
             <View style = {styles.header}>
-                {/* Searchbar */}
+                <FormButton
+                mode = "outlined"
+                labelStyle={styles.ContinuesButtonLabel}
+                title={"Search"}
+                color = {COLORS.white}
+                onPress= {() =>  navigation.navigate('Search')}
+                />
             </View>
 
             <View style = {{flexDirection : 'row', justifyContent : 'space-around', margin : 10}}>

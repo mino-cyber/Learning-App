@@ -15,6 +15,7 @@
     "@react-navigation/material-bottom-tabs": "^6.2.1",
     "@react-navigation/native": "^6.0.10",
     "@react-navigation/native-stack": "^6.6.2",
+    "av": "^0.4.9",
     "directory": "^0.1.0",
     "expo": "~45.0.0",
     "expo-av": "^11.2.3",
@@ -29,7 +30,8 @@
     "react-native-screens": "3.11.1",
     "react-native-vector-icons": "^9.1.0",
     "react-native-web": "0.17.7",
-    "react-native-webview": "^11.18.2"
+    "react-native-webview": "^11.18.2",
+    "whatwg-fetch": "^3.6.2"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"
